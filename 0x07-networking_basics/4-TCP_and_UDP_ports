@@ -3,5 +3,4 @@
 #	(1) only shows listening sockets
 #	(2) shows the PID and name of the program to which each socket belongs
 
-netstat -l
-netstat -p
+netstat -lp
