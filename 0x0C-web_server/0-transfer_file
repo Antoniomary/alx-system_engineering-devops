@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# It transfers a file from our client to a server
+
+if [ $# -lt 3 ]; then
+	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+	exit 1
+fi
+
+file_path=$1
+ip=$2
+user=$3
+path_to_priv=$4
+
+if [ -z "$path_to_priv" ]; then
+	path_to_priv="$HOME/.ssh/id_rsa"
+fi
+
+scp -i "$path_to_priv" "$file_path" "$user@$ip:~/"
