@@ -15,4 +15,4 @@ if [ -z "$path_to_priv" ]; then
 	path_to_priv="$HOME/.ssh/id_rsa"
 fi
 
-scp -i "$path_to_priv" "$file_path" "$user@$ip:~/"
+scp -i "$path_to_priv" -o StrictHostKeyChecking=no "$file_path" "$user@$ip:~/"
