@@ -12,8 +12,8 @@ sudo apt-get -y install nginx
 nginx -v || exit 1
 
 # check firewall version
-if ufw -v; then
-	if sudo service ufw status; then
+if ufw --version; then
+	if ! sudo service ufw status; then
 		sudo ufw enable
 	fi
 	sudo ufw allow 'Nginx HTTP'
