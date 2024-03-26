@@ -27,5 +27,4 @@ sudo service nginx stop
 # start nginx
 if sudo service nginx start; then
 	echo "Hello World!" > /var/www/html/index.html
-	curl http://localhost/
 fi
