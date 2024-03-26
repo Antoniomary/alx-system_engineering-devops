@@ -20,7 +20,7 @@ if ufw --version; then
 	sudo ufw allow ssh
 fi
 
+echo "Hello World!" > /var/www/html/index.html
+
 # start nginx
-if sudo service nginx restart; then
-	echo "Hello World!" > /var/www/html/index.html
-fi
+sudo service nginx start
