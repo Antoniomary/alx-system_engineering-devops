@@ -13,7 +13,7 @@ nginx -v || exit 1
 
 # check firewall version
 if ufw --version; then
-	if ! sudo service ufw status; then
+	if ! sudo ufw status; then
 		sudo ufw enable
 	fi
 	sudo ufw allow 'Nginx HTTP'
