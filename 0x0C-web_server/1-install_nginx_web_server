@@ -2,9 +2,6 @@
 # Installs nginx on a server, listening via port 80.
 # GET request to root returns a page that contains the string 'Hello World!'
 
-# login as root
-sudo su
-
 # update the packages
 apt-get update
 
