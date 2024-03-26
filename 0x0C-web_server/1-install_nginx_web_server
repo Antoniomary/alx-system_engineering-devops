@@ -26,5 +26,5 @@ fi
 sudo service nginx stop
 # start nginx
 if sudo service nginx start; then
-	echo "Hello World!" > /var/www/html/index.html
+	echo "<html><head></head><body><p>Hello World!</p></body></html>" > /var/www/html/index.html
 fi
