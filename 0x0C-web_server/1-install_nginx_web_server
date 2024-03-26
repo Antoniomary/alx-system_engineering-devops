@@ -11,20 +11,16 @@ sudo apt-get -y install nginx
 # check if nginx installed
 nginx -v || exit 1
 
-# replace the port with 80
-sed -i 's/^\(listen\s\+\)[0-9]\+/\180/' /etc/nginx/sites-available/default
-
 # check firewall version
 if ufw -v; then
 	if sudo service ufw status; then
 		sudo ufw enable
 	fi
 	sudo ufw allow 'Nginx HTTP'
+	sudo ufw allow ssh
 fi
 
-# stop nginx if running
-sudo service nginx stop
 # start nginx
-if sudo service nginx start; then
-	echo "<html><head></head><body><p>Hello World!</p></body></html>" > /var/www/html/index.html
+if sudo service nginx restart; then
+	echo "Hello World!" > /var/www/html/index.html
 fi
