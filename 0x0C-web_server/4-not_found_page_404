@@ -23,7 +23,7 @@ sed -i "/server_name _;/ a \ \n\trewrite /redirect_me https://www.youtube.com/wa
 
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 str="\ \n\t# custom error page configuration\n\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}"
-sed -i "/listen [::]:80 default_server;/ a $str" /etc/nginx/sites-available/default
+sed -i "/listen \[::\]:80 default_server;/ a $str" /etc/nginx/sites-available/default
 
 # start nginx
 service nginx start
