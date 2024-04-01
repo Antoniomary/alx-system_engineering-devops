@@ -13,7 +13,7 @@ nginx -v || exit 1
 
 # check firewall version
 if ufw --version; then
-	if ! ufw status; then
+	if ufw status | head -n 1 | grep -q "Status: inactive"; then
 		ufw enable
 	fi
 	ufw allow 'Nginx HTTP'
