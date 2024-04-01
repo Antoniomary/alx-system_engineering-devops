@@ -19,8 +19,6 @@ if ufw --version; then
         ufw allow ssh
 fi
 
-echo "Hello World!" > /var/www/html/index.html
-
 sed -i "/server_name _;/ a \ \n\tadd_header X-served-by \"$(hostname)\";" /etc/nginx/sites-available/default
 
 # start nginx
