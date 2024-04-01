@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# Installs nginx on a server, listening via port 80.
-# GET request to root returns a page that contains the string 'Hello World!'
+# Configures a Nginx server so that /redirect_me is redirecting to another page. 
 
 # update the packages
 apt-get update
