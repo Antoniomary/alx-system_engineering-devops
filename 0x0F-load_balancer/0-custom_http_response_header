@@ -1,4 +1,27 @@
 #!/usr/bin/env bash
 # Configures Nginx so that its HTTP response contains a custom header "X-Served-By"
+
+# update the packages
+apt-get update
+
+# installs nginx
+apt-get -y install nginx
+
+# check if nginx installed
+nginx -v || exit 1
+
+# check firewall version
+if ufw --version; then
+        if ufw status | head -n 1 | grep -q "Status: inactive"; then
+                ufw enable
+        fi
+        ufw allow 'Nginx HTTP'
+        ufw allow ssh
+fi
+
+echo "Hello World!" > /var/www/html/index.html
+
 sed -i "/server_name _;/ a \ \n\tadd_header X-served-by $(hostname);" /etc/nginx/sites-available/default
-ervice nginx restart
+
+# start nginx
+service nginx restart
