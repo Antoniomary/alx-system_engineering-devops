@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Installs nginx on a server, listening via port 80.
+# GET request to root returns a page that contains the string 'Hello World!'
+
+# update the packages
+apt-get update
+
+# installs nginx
+apt-get -y install nginx
+
+# check if nginx installed
+nginx -v || exit 1
+
+# check firewall version
+if ufw --version; then
+	if ufw status | head -n 1 | grep -q "Status: inactive"; then
+		ufw enable
+	fi
+	ufw allow 'Nginx HTTP'
+	ufw allow ssh
+fi
+
+sed -i "/server_name _;/ a \ \n\t rewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
+
+# start nginx
+service nginx start
