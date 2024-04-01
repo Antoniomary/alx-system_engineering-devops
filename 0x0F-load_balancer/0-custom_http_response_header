@@ -19,7 +19,7 @@ if ufw --version; then
         ufw allow ssh
 fi
 
-sed -i "/server_name _;/ a \ \n\tadd_header X-served-by \"$(hostname)\";" /etc/nginx/sites-available/default
+sed -i "/server_name _;/ a \ \n\tadd_header X-Served-By \"$(hostname)\";" /etc/nginx/sites-available/default
 
 # start nginx
-service nginx start
+service nginx restart
