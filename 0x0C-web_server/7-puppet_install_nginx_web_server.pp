@@ -3,7 +3,7 @@
 #      -> perform a 301 redirect when querying /redirect_me.
 
 package { 'nginx':
-  ensure   => 'present',
+  ensure => 'present',
 }
 
 -> exec { 'ufw_allow_http':
