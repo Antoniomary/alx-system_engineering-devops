@@ -3,8 +3,7 @@
 #      -> perform a 301 redirect when querying /redirect_me.
 
 package { 'nginx':
-  ensure   => present,
-  provider => 'apt-get',
+  ensure   => 'present',
 }
 
 -> exec { 'ufw_allow_http':
@@ -18,7 +17,7 @@ package { 'nginx':
 }
 
 -> file_line { 'redirection':
-  ensure => present,
+  ensure => 'present',
   path   => '/etc/nginx/sites-available/default':
   line   => 'rewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
 }
