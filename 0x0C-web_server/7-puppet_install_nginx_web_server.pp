@@ -2,8 +2,9 @@
 #      -> liston on port 80
 #      -> perform a 301 redirect when querying /redirect_me.
 
-package { 'nginx':
-  ensure => 'present',
+exec { 'nginx_install':
+  command  => 'sudo apt-get update && sudo apt-get -y install nginx',
+  provider => shell,
 }
 
 -> exec { 'ufw_allow_http':
