@@ -22,14 +22,16 @@ exec { 'ufw_allow_tcp':
 file_line { 'redirection':
   ensure => present,
   path   => '/etc/nginx/sites-available/default':
-  line   => 'rewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;'
+  line   => 'rewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
 }
 
 service { 'ufw':
-  ensure => running,
-  enable => true,
-} -> Package['nginx']
+  ensure  => running,
+  enable  => true,
+  require => Package['nginx']
+}
 
 service { 'nginx':
-  ensure => running,
-}
+  ensure  => running,
+  require => Package['nginx']
+
