@@ -3,7 +3,8 @@
 #      -> perform a 301 redirect when querying /redirect_me.
 
 package { 'nginx':
-  ensure => installed,
+  ensure   => installed,
+  provider => 'apt-get',
 }
 
 exec { 'ufw_allow_http':
