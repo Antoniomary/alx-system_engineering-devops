@@ -3,35 +3,31 @@
 #      -> perform a 301 redirect when querying /redirect_me.
 
 package { 'nginx':
-  ensure   => installed,
+  ensure   => present,
   provider => 'apt-get',
 }
 
-exec { 'ufw_allow_http':
+-> exec { 'ufw_allow_http':
   command  => "sudo ufw allow 'Nginx HTTP'",
-  require  => Package['nginx'],
   provider => shell,
 }
 
-exec { 'ufw_allow_tcp':
+-> exec { 'ufw_allow_tcp':
   command  => 'sudo ufw allow ssh',
-  require  => Package['nginx'],
   provider => shell,
 }
 
-file_line { 'redirection':
+-> file_line { 'redirection':
   ensure => present,
   path   => '/etc/nginx/sites-available/default':
   line   => 'rewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
 }
 
-service { 'ufw':
+-> service { 'ufw':
   ensure  => running,
   enable  => true,
-  require => Package['nginx']
 }
 
-service { 'nginx':
+-> service { 'nginx':
   ensure  => running,
-  require => Package['nginx']
-
+}
