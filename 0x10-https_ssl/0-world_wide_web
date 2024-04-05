@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# displays information for a domain and its subdomains
+
+
+func () {
+	info=$(dig "$1" | grep -A1 'ANSWER SECTION:' | tail -n 1)
+	record_type=$(awk '{print $4}' <<< "$info")
+	dest=$(awk '{print $5}' <<< "$info")
+	echo "The subdomain $2 is a $record_type record and points to $dest"
+}
+
+if [ $# -eq 1 ]; then
+	func "www.$1" "www"
+	func "lb-01.$1" "lb-01"
+	func "web-01.$1" "web-01"
+	func "web-02.$1" "web-02"
+elif [ $# -gt 1 ]; then
+	func "$2.$1" "$2"
+fi
