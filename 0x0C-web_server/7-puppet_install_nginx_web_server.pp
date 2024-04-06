@@ -18,6 +18,12 @@ exec { 'index_html':
   require  => Package['nginx'],
 }
 
+exec { 'redirection':
+  command  => 'sed -i "/server_name _;/ a \ \n\trewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default',
+  provider => shell,
+  require  => Package['nginx'],
+}
+
 service { 'nginx':
   ensure  => running,
   require => Package['nginx'],
