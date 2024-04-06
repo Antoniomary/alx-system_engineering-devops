@@ -13,7 +13,7 @@ package { 'nginx':
 }
 
 exec { 'index_html':
-  command  => 'echo "Hello World!" | sudo tee /var/www/html/index.html
+  command  => 'echo "Hello World!" | sudo tee /var/www/html/index.html',
   provider => shell,
-  require => Package['nginx'],
+  require  => Package['nginx'],
 }
