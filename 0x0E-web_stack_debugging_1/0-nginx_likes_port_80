@@ -8,6 +8,7 @@ fi
 
 if sudo ufw --version; then
 	sudo ufw allow 'Nginx HTTP'
+	sudo service ufw restart
 fi
 
 sudo service nginx restart
