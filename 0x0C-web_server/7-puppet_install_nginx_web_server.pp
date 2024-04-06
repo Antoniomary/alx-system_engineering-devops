@@ -17,3 +17,8 @@ exec { 'index_html':
   provider => shell,
   require  => Package['nginx'],
 }
+
+service { 'nginx':
+  ensure  => running,
+  require => Package['nginx'],
+}
