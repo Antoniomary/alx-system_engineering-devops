@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Runs Nginx as the nginx user, listening on port 8080
+
+# turns the worker process to nginx
+sed -i '/#user www-data/user nginx/' /etc/nginx/nginx.conf
+
+# turns the listening port to 8080
+sed -i '/80/8080/' /etc/nginx/sites-available/default
+
+# allows nginx user to read configuration file
+chmod 004 /etc/nginx/nginx.conf
+
+# kills the apache zoombie process that were bound to 8080
+pkill apache2
+
+# start Nginx as nginx user
+sudo -u nginx service nginx start
