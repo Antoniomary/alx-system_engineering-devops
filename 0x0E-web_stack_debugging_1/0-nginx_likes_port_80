@@ -11,6 +11,6 @@ if sudo ufw --version; then
 	sudo service ufw restart
 fi
 
-sed -i 's/listen \(.*\) default_server;/listen 80 default_server;/g' /etc/nginx/sites-available/default
+sed -i 's/listen [0-9]\(.*\) default_server;/listen 80 default_server;/g' /etc/nginx/sites-available/default
 sed -i 's/listen [::]:\(.*\) default_server/listen [::]:80 default_server/g' /etc/nginx/sites-available/default
 sudo service nginx restart
