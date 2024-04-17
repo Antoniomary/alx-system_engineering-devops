@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# debugs a web stack so that curl 0:80 returns 200 code
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+/usr/sbin/ngunx
