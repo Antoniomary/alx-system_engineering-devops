@@ -13,5 +13,5 @@ fi
 
 sed -i 's/listen [0-9]\(.*\) default_server;/listen 80 default_server;/g' /etc/nginx/sites-available/default
 sed -i 's/listen [::]:\(.*\) default_server/listen [::]:80 default_server/g' /etc/nginx/sites-available/default
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
