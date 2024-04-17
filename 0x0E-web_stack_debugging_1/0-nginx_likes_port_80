@@ -3,7 +3,7 @@
 
 if ! nginx -v; then
 	sudo apt-get update
-	sudo apt-get -y install nginx;
+	sudo apt-get -y install nginx
 fi
 
 if sudo ufw --version; then
@@ -11,4 +11,6 @@ if sudo ufw --version; then
 	sudo service ufw restart
 fi
 
+sed -i 's/listen \(.*\) default_server;/listen 80 default_server;/g' /etc/nginx/sites-available/default
+sed -i 's/listen [::]:\(.*\) default_server/listen [::]:80 default_server/g' /etc/nginx/sites-available/default
 sudo service nginx restart
