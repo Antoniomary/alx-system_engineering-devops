@@ -19,8 +19,8 @@ def get_employee_info(eid):
         titles = []
         done, total = 0, 0
         for todo in todos:
-            titles.append(todo.get('title'))
-            if todo.get('completed') == 'true':
+            if todo.get('completed') is True:
+                titles.append(todo.get('title'))
                 done += 1
             total += 1
 
@@ -31,5 +31,5 @@ def get_employee_info(eid):
 
 
 if __name__ == '__main__':
-    if len(argv) == 2 and type(argv[2]) is int:
-        get_employee_info(argv[2])
+    if len(argv) == 2 and argv[1].isdigit():
+        get_employee_info(argv[1])
