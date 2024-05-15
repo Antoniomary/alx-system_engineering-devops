@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# fix the issue in a container
+
+# start the web server
+service apache2 restart
