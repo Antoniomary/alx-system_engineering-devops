@@ -19,8 +19,8 @@ frontend my-frontend
 
 backend my-backend
         balance roundrobin
-        server 335727-web-01 52.91.119.206:80 check
-        server 335727-web-02 35.153.83.163:80 check
+        server 335727-web-01 100.25.155.10:80 check
+        server 335727-web-02 54.90.5.78:80 check
 "
 
 echo "$config" | tee -a /etc/haproxy/haproxy.cfg
