@@ -19,7 +19,7 @@ frontend my-frontend
 
 backend my-backend
         balance roundrobin
-        server 335727-web-01 54.144.85.60:80 check
+        server 335727-web-01 3.90.80.39:80 check
         server 335727-web-02 54.90.5.78:80 check
 "
 
