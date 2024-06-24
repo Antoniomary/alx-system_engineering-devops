@@ -21,10 +21,9 @@
     - a list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx server, add monitoring on server memory…)
   - Be brief and straight to the point, between 400 to 600 words
 
-  1. [link to doc file](https://docs.google.com/document/d/1qtiS289zmvi5CYd5dKx7Gu5bfMbq2dpJ5Be36Sf2QJk/edit?usp=drivesdk)
-  2. [link to linkedin blog](https://www.linkedin.com/pulse/postmortem-anthony-amansowomhan-4dgxf)
+  1. [link to the doc file](https://docs.google.com/document/d/1qtiS289zmvi5CYd5dKx7Gu5bfMbq2dpJ5Be36Sf2QJk/edit?usp=drivesdk)
+  2. [link to the linkedin blog](https://www.linkedin.com/pulse/postmortem-anthony-amansowomhan-4dgxf)
 
 ## 1. Make people want to read your postmortem
-Make your post-mortem attractive by adding humour, a pretty diagram or
-anything that would catch your audience attention
+- Make your post-mortem attractive by adding humour, a pretty diagram or anything that would catch your audience attention
   1. [link to linkedin blog](https://www.linkedin.com/pulse/postmortem-report-i-need-break-anthony-amansowomhan-gjupf/)
