@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 # reload Gunicorn in a graceful way
-pgrep gunicorn | xargs sudo kill -HUP
+pid=$(pgrep gunicorn | head -1)
+if [ -n "$pid" ]; then
+	sudo kill -HUP "$pid";
+fi
