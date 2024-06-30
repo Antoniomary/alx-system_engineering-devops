@@ -1,8 +1,14 @@
 server {
 	listen 80;
 	server_name 100.26.171.107;
- 
-	root /Airbnb_clone_v4/web_dynamic/static/;
+
+	location / {
+		proxy_pass http://127.0.0.1:5003/2-hbnb;
+	}
+
+	location /static/ {
+		root /home/ubuntu/AirBnB_clone_v4/web_dynamic/;
+	}
 
 	add_header X-Served-By "335727-web-01";
  
@@ -16,9 +22,5 @@ server {
 
 	location /api/ {
 		proxy_pass http://127.0.0.1:5002;
-	}
-
-	location / {
-		proxy_pass http://127.0.0.1:5003/2-hbnb;
 	}
 }
